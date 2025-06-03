@@ -1,4 +1,4 @@
-import gifAnimation.*;
+
 
 JSONArray strokes;
 PImage   brushTex;        // optional 64×64 PNG with soft edges
@@ -7,7 +7,7 @@ int      total;
 boolean  playing   = true;
 int      delayMs   = 1;   // controls speed
 
-GifMaker gif;
+
 boolean  recording = false;
 
 void setup() {
@@ -17,10 +17,7 @@ void setup() {
   total   = strokes.size();
   frameRate(60);
 
-  gif = new GifMaker(this, "painting.gif");
-  gif.setRepeat(0);        // 0 = loop forever
-  gif.setQuality(10);      // lower = smaller file, higher = better
-  gif.setDelay(16);        // ms per frame (≈ 60 fps)
+
 }
 
 void draw() {
@@ -32,13 +29,10 @@ void draw() {
       println("✓ Finished replaying " + total + " strokes");
     }
 
-    if (recording) {
-      gif.addFrame();
-    }
 
     if (idx == total) {
       recording = false;
-      gif.finish();
+
       println("✓ GIF saved.");
     }
   }
