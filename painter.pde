@@ -32,8 +32,6 @@ void draw() {
 
     if (idx == total) {
       recording = false;
-
-      println("✓ GIF saved.");
     }
   }
 }
